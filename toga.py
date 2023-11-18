@@ -25,8 +25,8 @@ def main():
     parser.add_argument('metadata')
     args = parser.parse_args()
 
-    fm_test_pairs = pd.read_csv(args.input_data).fillna('')
-    metadata = pd.read_csv(args.metadata).fillna('')
+    fm_test_pairs = pd.read_csv(args.input_data, escapechar='\\').fillna('')
+    metadata = pd.read_csv(args.metadata, escapechar='\\').fillna('')
 
     metadata['id'] = metadata.project + metadata.bug_num.astype(str) + metadata.test_name
 
